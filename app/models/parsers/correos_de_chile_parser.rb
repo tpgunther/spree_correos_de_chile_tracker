@@ -1,9 +1,9 @@
-module Parser
+module Parsers
   class CorreosDeChileParser
     @base_url = 'http://seguimientoweb.correos.cl/ConEnvCorreos.aspx'
     @respone = nil
 
-    def getTrackInfo(track_number)
+    def self.getTrackInfo(track_number)
       uri = URI(@base_url)
       res = Net::HTTP.post_form(uri, obj_key: 'Cor398-cc', obj_env: track_number)
       body = Nokogiri::HTML(res.body)
@@ -23,8 +23,7 @@ module Parser
         movements = []
         body.css('.tracking tr').each do |table_row|
           table_row.css('td').each_slice(3) do |value|
-            puts value
-            movements << {'status' => value[0].children.text.to_s.squish, 'timestamp'  => value[1].children.text.to_s.squish, 'place' => value[2].children.text.to_s.squish }
+            movements << { 'status' => value[0].children.text.to_s.squish, 'timestamp'  => value[1].children.text.to_s.squish, 'place' => value[2].children.text.to_s.squish }
           end
         end
         response[:movements] = movements
