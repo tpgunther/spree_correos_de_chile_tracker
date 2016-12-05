@@ -1,0 +1,54 @@
+<h1><%= Spree.t(:tracking_header, number: @tracking.order.number) %></h1>
+
+<h4><%= Spree.t(:tracking_general) %></h4>
+
+<table>
+  <% if JSON.parse(@tracking.state)['general'] %>
+    <thead>
+      <tr>
+        <th><%= Spree.t(:tracking_key) %></th>
+        <th><%= Spree.t(:tracking_value) %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% JSON.parse(@tracking.state)['general'].each do |key| %>
+        <tr>
+            <td><%= key.keys[0] %></td>
+            <td><%= key[key.keys[0]] %></td>
+            <td></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% else %>
+    <tbody>
+      <tr>
+        <td><%= Spree.t(:tracking_no_info) %></td>
+        <td></td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>
+
+<h4><%= Spree.t(:tracking_movements) %></h4>
+
+<% if JSON.parse(@tracking.state)['movements'] %>
+  <table>
+    <thead>
+      <tr>
+        <th><%= Spree.t(:tracking_status) %></th>
+        <th><%= Spree.t(:tracking_timestamp) %></th>
+        <th><%= Spree.t(:tracking_place) %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% JSON.parse(@tracking.state)['movements'].each do |td| %>
+        <tr>
+          <td><%= td['status'] %></td>
+          <td><%= td['timestamp'] %></td>
+          <td><%= td['place'] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

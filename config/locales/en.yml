@@ -3,3 +3,15 @@
 
 en:
   hello: "Hello world"
+
+es:
+  spree:
+      tracking_header: Tracking information of order %{number}
+      tracking_no_info: No available information
+      tracking_key: Name
+      tracking_value: Value
+      tracking_general: General Information
+      tracking_movements: Movements
+      tracking_status: Status
+      tracking_timestamp: Timestamp
+      tracking_place: Place

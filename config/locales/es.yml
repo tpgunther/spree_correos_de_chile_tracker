@@ -1,0 +1,11 @@
+es:
+  spree:
+      tracking_header: Información de envío de la orden %{number}
+      tracking_no_info: No hay información disponible
+      tracking_key: Nombre
+      tracking_value: Valor
+      tracking_movements: Movimientos
+      tracking_general: Datos Generales
+      tracking_status: Estado
+      tracking_timestamp: Hora
+      tracking_place: Lugar

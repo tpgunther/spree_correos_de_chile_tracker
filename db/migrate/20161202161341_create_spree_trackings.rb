@@ -3,6 +3,7 @@ class CreateSpreeTrackings < ActiveRecord::Migration
     create_table :spree_trackings do |t|
       t.string      :number
       t.integer     :order_id
+      t.text        :state
 
       t.timestamps
     end
