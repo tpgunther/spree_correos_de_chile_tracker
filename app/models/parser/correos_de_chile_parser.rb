@@ -8,8 +8,8 @@ module Parser
       res = Net::HTTP.post_form(uri, obj_key: 'Cor398-cc', obj_env: track_number)
       body = Nokogiri::HTML(res.body)
       response = {}
-
-      if track_number.blank? or body.css('.envio_no_existe').any?
+      # nokogiri response 400 o error
+      if track_number.blank? or body.css('.envio_no_existe').any? or res.code != '200'
         @response = { movements: [{ status: 'NO INFO' }] }
         @response.to_json
       else
