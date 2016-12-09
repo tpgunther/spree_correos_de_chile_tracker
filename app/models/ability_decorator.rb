@@ -2,6 +2,7 @@ class AbilityDecorator
   include CanCan::Ability
 
   def initialize(user)
+    cannot :manage, Spree::Tracking
     can :read, Spree::Tracking do |tracking|
       tracking.order && tracking.order.user == user
     end
