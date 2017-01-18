@@ -27,6 +27,7 @@ class Spree::Tracking < ActiveRecord::Base
   # Custom for salco
   def set_number
     self.number = order.number.tr('R', '')
+    self.number = number[1..-1] while self.number[0] == '0'
     save
   end
 end
