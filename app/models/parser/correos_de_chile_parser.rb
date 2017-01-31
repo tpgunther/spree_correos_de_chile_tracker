@@ -10,7 +10,7 @@ module Parser
       response = { code: res.code }
       # nokogiri response 400 o error
       if track_number.blank? or body.css('.envio_no_existe').any? or res.code != '200'
-        @response = { movements: [{ status: 'EN PREPARACION' }] }
+        @response = { movements: [{ status: 'EN PREPARACIÓN' }] }
         @response.to_json
       else
         general = []
