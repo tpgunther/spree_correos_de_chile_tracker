@@ -5,11 +5,7 @@
 <table>
   <% if JSON.parse(@tracking.state)['general'] %>
     <thead>
-      <tr>
-        <th><%= Spree.t(:tracking_key) %></th>
-        <th><%= Spree.t(:tracking_value) %></th>
-        <th></th>
-      </tr>
+
     </thead>
     <tbody>
       <% JSON.parse(@tracking.state)['general'].each do |key| %>

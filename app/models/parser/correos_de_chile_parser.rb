@@ -10,7 +10,7 @@ module Parser
       response = { code: res.code }
       # nokogiri response 400 o error
       if track_number.blank? or body.css('.envio_no_existe').any? or res.code != '200'
-        @response = { movements: [{ status: 'NO INFO' }] }
+        @response = { movements: [{ status: 'EN PREPARACION' }] }
         @response.to_json
       else
         general = []
@@ -34,5 +34,3 @@ module Parser
     end
   end
 end
-
-# Parser::CorreosDeChileParser.getTrackInfo(3072708247886)
