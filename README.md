@@ -21,6 +21,12 @@ bundle
 bundle exec rails g spree_correos_de_chile_tracker:install
 ```
 
+Important!
+-------
+
+You have to manually set the worker to automatically get the state of the orders. You can to it usign Sidetiq or Whenever
+
+
 Testing[Pending]
 -------
 
