@@ -1,5 +1,5 @@
 module Spree
-  class TrackingController < Spree::StoreController
+  class TrackingsController < Spree::StoreController
     authorize_resource
 
     def show
