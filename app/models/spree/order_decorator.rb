@@ -10,6 +10,7 @@ module Spree
         set_delivery_state if tracking.state.nil? or tracking.state.blank?
         tracking.last_delivery_state
       rescue
+        { movements: [{ status: 'EN PREPARACIÓN' }] }
       end
     end
 
